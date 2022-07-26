@@ -24,4 +24,15 @@ JOIN companies ON experiences."companyId"=companies.id
 
 WHERE users.id=50 AND "endDate" ISNULL;
 
+--Bonus
+SELECT  schools.id, schools.name AS school, courses.name AS company, roles.name AS role
+FROM jobs
+JOIN roles ON jobs."roleId"=roles.id
+JOIN companies ON jobs."companyId"=companies.id
+JOIN applicants ON applicants."jobId"=jobs.id
+JOIN educations ON educations."userId"=applicants."userId"
+JOIN courses ON courses.id = educations."courseId"
+JOIN schools ON schools.id = educations."schoolId"
+
+
 
